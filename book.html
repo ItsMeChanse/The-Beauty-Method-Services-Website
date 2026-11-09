@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Book an appointment — The Beauty Method</title>
+<meta name="description" content="Choose your services, pick a day and time, and book your appointment online.">
+<meta property="og:title" content="Book an appointment — The Beauty Method">
+<meta property="og:description" content="Choose your services, pick a day and time, and book your appointment online.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:ital,wght@0,500;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="wordmark" href="index.html">The Beauty Method</a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="about.html">About & contact</a>
+      <a href="policies.html">Policies</a>
+      <a class="btn btn--small" href="book.html" aria-current="page">Book now</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<section class="page-head">
+  <div class="wrap">
+    <h1>Book an appointment</h1>
+    <p class="lede measure">Choose your services first. Open times adjust to how long they take together.</p>
+  </div>
+</section>
+<section class="section" style="padding-top:12px">
+  <div class="wrap">
+    <p class="demo-banner" id="demoBanner" hidden>Demo mode: times are sample data and nothing is booked. Set <code>API_URL</code> in <code>assets/js/config.js</code> to go live.</p>
+    <form id="bookForm" novalidate>
+      <div class="book-layout">
+        <div>
+          <fieldset class="step">
+            <legend><span class="n">1</span> Choose your services</legend>
+            <div id="services"><p class="loading">Loading services…</p></div>
+          </fieldset>
+          <fieldset class="step">
+            <legend><span class="n">2</span> Pick a day</legend>
+            <div class="chips" id="dates"><p class="loading">Loading days…</p></div>
+          </fieldset>
+          <fieldset class="step">
+            <legend><span class="n">3</span> Pick a time</legend>
+            <p class="hint" id="timeHint" aria-live="polite">Choose at least one service to see open times.</p>
+            <div class="chips" id="times"></div>
+          </fieldset>
+          <fieldset class="step">
+            <legend><span class="n">4</span> Your details</legend>
+            <div class="field"><label for="name">Full name</label><input type="text" id="name" autocomplete="name" required></div>
+            <div class="fields-2">
+              <div class="field"><label for="phone">Phone</label><input type="tel" id="phone" autocomplete="tel" required></div>
+              <div class="field"><label for="email">Email</label><input type="email" id="email" autocomplete="email" required></div>
+            </div>
+            <div class="field"><label for="notes">Notes <span class="opt">(optional)</span></label><textarea id="notes" rows="3" placeholder="Inspiration, nail length, anything we should know"></textarea></div>
+            <div class="hp-field" aria-hidden="true"><label for="website">Website</label><input type="text" id="website" tabindex="-1" autocomplete="off"></div>
+          </fieldset>
+        </div>
+        <aside class="summary" aria-live="polite">
+          <h2>Your appointment</h2>
+          <ul id="sumList"></ul>
+          <dl class="totals">
+            <dt>When</dt><dd id="sumWhen">Pick a day and time</dd>
+            <dt>Est. time</dt><dd id="sumTime">—</dd>
+            <dt id="sumPriceLabel">Total</dt><dd id="sumPrice">—</dd>
+          </dl>
+          <button class="btn" id="submitBtn" type="submit">Book appointment</button>
+          <div id="message" role="alert"></div>
+          <p class="fine">You’ll get a confirmation email right away. Prices marked + may change with length and design. See <a href="policies.html">policies</a>.</p>
+        </aside>
+      </div>
+    </form>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="wordmark" href="index.html">The Beauty Method</a>
+        <p>Beauty is the result. Care is the method.</p>
+      </div>
+      <div>
+        <h2>Visit</h2>
+        <p><a data-cfg="address" href="#">Address</a></p>
+        <p><a href="about.html#hours">Hours</a></p>
+      </div>
+      <div>
+        <h2>Contact</h2>
+        <p><a data-cfg="phone" href="#">Phone</a></p>
+        <p><a data-cfg="email" href="#">Email</a></p>
+        <p><a data-cfg="instagram" href="#">Instagram</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">© <span data-year></span> The Beauty Method</div>
+  </div>
+</footer>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/book.js"></script>
+</body>
+</html>
